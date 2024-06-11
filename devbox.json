@@ -12,12 +12,15 @@
   },
   "shell": {
     "init_hook": [
-      "mkdir -p .nix-hex",
-      "mix local.hex --force",
-      "mix local.rebar --force"
+
     ],
     "scripts": {
-      "install": "cd ./hello && mix deps.get",
+      "install": [
+        "mkdir -p .nix-hex",
+        "mix local.hex --force",
+        "mix local.rebar --force",
+        "cd ./hello && mix deps.get"
+      ],
       "build": "cd ./hello && mix compile",
       "start": "cd ./hello && mix phx.server"
     }
